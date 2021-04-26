@@ -1,4 +1,4 @@
-{extends file="../templates/main.html"}
+{extends file=$conf->root_path|cat:"/templates/main.html"}
 
 {block name=footerr}
 <!-- ======= Footer ======= -->
@@ -63,7 +63,7 @@
 
         <div class="row" data-aos="fade-up">
 
-			<form action="{$conf->app_url}/app/calc.php" method="post">
+			<form action="{$conf->action_root}calcCompute" method="post">
 				<table>
 				<tr>
 				<td><label for="id_x">Kwota: </label></td>
