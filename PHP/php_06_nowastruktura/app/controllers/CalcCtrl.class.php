@@ -46,33 +46,33 @@ class CalcCtrl {
 		
 		
 		if ($this->form->kwota == "") {
-			$this->msgs->addError('Nie podano kwoty');
+			getMessages()->addError('Nie podano kwoty');
 		}
 		if ($this->form->czas == "") {
-			$this->msgs->addError('Nie podano czasu');
+			getMessages()->addError('Nie podano czasu');
 		}
 		if ($this->form->oprocentowanie == "") {
-			$this->msgs->addError('Nie podano oprocentowania');
+			getMessages()->addError('Nie podano oprocentowania');
 		}
 		
 		
-		if (! $this->msgs->isError()) {
+		if (! getMessages()->isError()) {
 			
 			
 			if (! is_numeric ( $this->form->kwota )) {
-				$this->msgs->addError('Pierwsza wartość nie jest liczbą całkowitą');
+				getMessages()->addError('Pierwsza wartość nie jest liczbą całkowitą');
 			}
 			
 			if (! is_numeric ( $this->form->czas )) {
-				$this->msgs->addError('Druga wartość nie jest liczbą całkowitą');
+				getMessages()->addError('Druga wartość nie jest liczbą całkowitą');
 			}
 			
 			if (! is_numeric ( $this->form->oprocentowanie )) {
-				$this->msgs->addError('Druga wartość nie jest liczbą całkowitą');
+				getMessages()->addError('Trzecia wartość nie jest liczbą całkowitą');
 			}
 		}
 		
-		return ! $this->msgs->isError();
+		return ! getMessages()->isError();
 	}
 	
 	/* 
@@ -80,7 +80,7 @@ class CalcCtrl {
 	 */
 	public function process(){
 
-		$this->getparams();
+		$this->getParams();
 		
 		if ($this->validate()) {
 				
@@ -88,16 +88,18 @@ class CalcCtrl {
 			$this->form->kwota = intval($this->form->kwota);
 			$this->form->czas = intval($this->form->czas);
 			$this->form->oprocentowanie = intval($this->form->oprocentowanie);
-			$this->msgs->addInfo('Parametry poprawne.');
+			getMessages()->addInfo('Parametry poprawne.');
 				
 			//wykonanie operacji
 		if ($this->form->kwota < 1 ){
-		$this->msgs->addError('Nie możesz liczyć dla kwot mniejszych od 1pln !');
+		getMessages()->addError('Nie możesz liczyć dla kwot mniejszych od 1pln !');
 				
 			} else {
 				$this->result->result = $this->form->kwota / (12*$this->form->czas)+($this->form->kwota/(12*$this->form->czas))*$this->form->oprocentowanie;
+				
+				getMessages()->addInfo('Wykonano obliczenia.');
 			}		
-			$this->msgs->addInfo('Wykonano obliczenia.');
+			
 		}
 		
 		$this->generateView();
