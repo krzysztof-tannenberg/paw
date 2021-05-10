@@ -3,7 +3,7 @@
 
 {block name=footer}<!-- ======= Footer ======= -->
  
-
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -27,6 +27,7 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
+</footer>
   {/block}
 
 {block name=content}
@@ -64,14 +65,14 @@
 			<form action="{$conf->action_root}calcCompute" method="post">
 				<table>
 				<tr>
-				<td><label for="id_x">Kwota: </label></td>
-				<td><input id="id_x" type="text" name="kwota" value="{$form->kwota}" /></td>
+				<td><label for="x">Kwota: </label></td>
+				<td><input id="x" type="text" name="kwota" value="{$form->kwota}" /></td>
 				</tr><tr>
-				<td><label for="id_y">Na ile lat: </label></td>
-				<td><input id="id_y" type="text" name="czas" value="{$form->czas}" /></td>
+				<td><label for="y">Na ile lat: </label></td>
+				<td><input id="y" type="text" name="czas" value="{$form->czas}" /></td>
 				</tr><tr>	
-				<td><label for="id_op">Oprocentowanie: </label></td>
-				<td><input id="id_op" type="text" name="oprocentowanie" value="{$form->oprocentowanie}" /></td>
+				<td><label for="op">Oprocentowanie: </label></td>
+				<td><input id="op" type="text" name="oprocentowanie" value="{$form->oprocentowanie}" /></td>
 				</tr>
 				<td><input type="submit" value="Oblicz" /></td>
 				</table>
@@ -111,6 +112,7 @@
 {/if}
 
 </div>
+
 </div> <!--KONIEC KONTENTU-->
 </div> <!--KONIEC container-->
        
