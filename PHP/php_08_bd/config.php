@@ -1,5 +1,5 @@
 <?php
-//konfiguracja
+//konfig
 $conf->server_name = 'localhost';
 $conf->server_url = 'http://'.$conf->server_name;
 $conf->app_root = '/php_08_bd';
