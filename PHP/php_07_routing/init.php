@@ -2,7 +2,7 @@
 
 require_once 'core/Config.class.php';
 $conf = new core\Config();
-require_once 'config.php'; //ustaw konfigurację
+require_once 'config.php';
 
 function &getConf(){
 	global $conf; return $conf;
@@ -31,7 +31,7 @@ function &getSmarty(){
 	return $smarty;
 }
 
-require_once 'core/ClassLoader.class.php'; //załaduj i stwórz loader klas
+require_once 'core/ClassLoader.class.php';
 $cloader = new core\ClassLoader();
 function &getLoader() {
     global $cloader; return $cloader;
